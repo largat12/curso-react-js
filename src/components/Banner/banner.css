@@ -1,0 +1,9 @@
+#banner {
+    position: relative;
+    margin: 0px auto;
+    max-width: 1250px;
+}
+#banner picture, #banner picture img, #banner picture source{
+    width: 100%;
+    border-radius: 0px 0px 16px 16px;
+}

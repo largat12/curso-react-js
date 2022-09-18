@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import './App.css'
+import { Banner } from './components/Banner/Banner';
 
 
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
@@ -10,7 +11,8 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <ItemListContainer />
+      <Banner />
+      <ItemListContainer title="Vuelos baratos en Colombia" description="Planea tus vacaciones con las mejores ofertas de vuelos baratos a Colombia. Recorre el país de extremo a extremo con vuelos baratos."/>
     </div>
   );
 }

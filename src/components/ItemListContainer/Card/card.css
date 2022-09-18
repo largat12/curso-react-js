@@ -1,0 +1,72 @@
+.card{
+    height: 100%;
+    border-radius: 0px;
+    cursor: pointer;
+    margin: 10px 0.5rem;
+    padding: 0rem;
+    position: relative;
+    border-radius: 8px;
+    border: 0px;
+    background: none;
+    height: auto;
+    box-shadow: 0px 0px 14px 0px transparent;
+    flex: 0 0 calc(25% - 1rem);
+    border:1px solid rgb(0 0 0 / 5%);
+    transition: box-shadow .5s;
+}
+.card:hover{
+    box-shadow: 0px 0px 14px 0px rgb(52 99 188 / 20%);
+}
+.card .content {
+    padding: 12px;
+}
+.card img.imagen{
+    width: 100%;
+    margin: 0px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    border-radius: 8px;
+    position: relative;
+    object-fit: cover;
+    object-position: center center;
+    height: 12rem;
+}
+.card .titulo-card {
+    padding: 0px;
+    text-align: left;
+    margin-top: 0px;
+    font-weight: 400;
+    font-size: .8rem;
+}
+.card .titulo-card-name {
+    color: #545454;
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: 0px;
+}
+.card p {
+    color: #545454;
+    text-align: left;
+    font-weight: 400;
+    font-size: .8rem;
+    line-height: 1.2;
+    margin-bottom: 0px;
+}
+.card  .precio {
+    text-align: left;
+    font-weight: 700;
+    margin: 0px 0px;
+    font-size: 1.4rem;
+    color: #545454;
+    line-height: 1.2;
+}
+.card .puntos p{
+    font-size: .8rem;
+    margin: 0px;
+}
+.card .puntos p img{
+    margin-left: 6px;
+    height: 1.2rem;
+}
