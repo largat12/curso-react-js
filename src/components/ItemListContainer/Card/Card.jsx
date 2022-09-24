@@ -1,14 +1,23 @@
+import { useState } from 'react';
 import './card.css'
 
 export function Card(props){
   const elementos = props.dataCard;
   const typeCard = props.dataTypeCard;
-
   const LogoPuntosColmbia = "https://www.viajesexito.com/Portals/1/Skins/renovacion/img/p-colombia.png"
-  console.log(elementos)
+  
+  const [colorCard, setColorCard] = useState("false")
+  
+
+  function handleClick(){
+    setColorCard("true")
+  }
+
+
+  //console.log(elementos)
     return(
-      elementos.map( element => 
-        <div className={`card card-${typeCard.toLowerCase()}`}>
+      elementos.map( (element, index) => 
+        <div key={index} className={`card card-${typeCard.toLowerCase()}`} dataactivecard={colorCard} onClick={handleClick}>
             <div className="content">
               <img className='imagen' src={element.imagen} alt={`Tiquetes a ${element.destino}, saliendo desde ${element.origen}`}/>
               <h3 className='titulo-card-name'>Tiquetes a {element.destino}</h3>

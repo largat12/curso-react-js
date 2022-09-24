@@ -31,7 +31,7 @@ export function Menu(props){
             <button id='btnMenu' onClick={executeMenu}><i className="icon-menu"></i><span>{props.btnTitleMenu}</span></button>
             <nav id='menu' className="d-none" data-element="false">
                 <ul>
-                    {elementMenu.map(elment => <li><a href={elment.href}><i className={elment.class}></i><span>{elment.title}</span></a></li>) }
+                    {elementMenu.map( (elment, index) => <li key={index}><a href={elment.href}><i className={elment.class}></i><span>{elment.title}</span></a></li>) }
                 </ul>
             </nav>
         </>
