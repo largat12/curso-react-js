@@ -23,6 +23,8 @@
     align-content: center;
     background: #f0f0f0;
     color: var(--red-portal-exito-texto);
+    border: none;
+    outline: 0;
 }
 
 
