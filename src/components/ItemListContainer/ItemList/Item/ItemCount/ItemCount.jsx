@@ -34,13 +34,14 @@ export function ItemCount(props){
     return(
         <div className="ElementCountProduct">
             <div className="contentCount">
-                <button className="btnCount  addCountProduct" onClick={handleAddCountProduct}>
-                    <FontAwesomeIcon icon={faPlus} />
-                </button>
-                <div className="countProduct">{countProduct}</div>
                 <button className="btnCount removeCountProduct" onClick={handleRemoveCountProduct}>
                     <FontAwesomeIcon icon={faMinus} />
                 </button>
+                <div className="countProduct">{countProduct}</div>
+                <button className="btnCount  addCountProduct" onClick={handleAddCountProduct}>
+                    <FontAwesomeIcon icon={faPlus} />
+                </button>
+                
             </div>
             <button className={"btnAddCart "+textAddCart[0].class}  onClick={handleTextAddCart}>{textAddCart[0].text}</button>
             
