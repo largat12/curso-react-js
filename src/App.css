@@ -1,41 +1,32 @@
 :root {
-  --red-portal-exito: #ff0000;
-  --red-portal-exito-hover: #d80000;
-  --red-portal-exito-amarillo: #ffd802;
-  --red-portal-exito--amarillo-hover: #c5a600;
-  --red-portal-exito-aniversario: #ff0000;
-  --red-portal-exito-aniversario-hover: #d42e7e;
-  --red-portal-exito-rojo: #ff0000;
-  --red-portal-exito-hover-rojo: #d80000;
+  --red-portal-exito: #ff7043;
+  --red-portal-exito-hover: #ea5c30;
+  --red-portal-exito-secundario: #86bc42;
+  --red-portal-exito-secundario-hover: #699632;
   --red-portal-exito-texto: #545454;
 }
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700&display=swap");
-@font-face {
-  font-family: 'icomoon';
-  src: url("./fonts/icomoon.eot") format("embedded-opentype"), url("./fonts/icomoon.ttf") format("truetype"), url("./fonts/icomoon.woff") format("woff"), url("./fonts/icomoon.svg") format("svg");
-  font-weight: normal;
-  font-style: normal;
-  font-display: block; 
-}
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;800&display=swap');
+
 .contenedor-page {
   width: 100%;
   max-width: 1300px;
   margin: 0px auto;
-  padding: 0px 36px;
+  padding: 0px;
 }
 .titulos {
-  color: var(--red-portal-exito-texto);
-  font-family: "Poppins", sans-serif;
-  font-size: 1.5rem;
+  color: var(--red-portal-exito);
+  font-family: "Raleway", sans-serif;
+  font-size: 2rem;
   line-height: 2rem;
-  font-weight: 700;
-  margin-bottom: 0rem;
-  margin-top: 1rem;
+  font-weight: 800;
+  margin: 2rem auto;
   padding: 0px;
+  text-align: center;
 }
 .descripcion {
   color: var(--red-portal-exito-texto);
-  font-family: "Poppins", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 0.8rem;
   line-height: 1.2;
   font-weight: 400;
@@ -44,196 +35,6 @@
   padding: 0px;
 }
 h1, h2, h3, h4, h5, h6, p, span, strong {
-  font-family: "Poppins", Helvetica, sans-serif;
+  font-family: "Raleway", Helvetica, sans-serif;
 }
-[class^="icon-"], [class*=" icon-"] {
-  font-family: 'icomoon' !important;
-  speak: never;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.icon-hot:before {
-  content: "\e826";
-}
-.icon-hot-solid:before {
-  content: "\e827";
-}
-.icon-chevron-left:before {
-  content: "\e843";
-}
-.icon-chevron-right:before {
-  content: "\e844";
-}
-.icon-chevron-down:before {
-  content: "\e845";
-}
-.icon-chevron-up:before {
-  content: "\e846";
-}
-.icon-plus:before {
-  content: "\e847";
-}
-.icon-change:before {
-  content: "\e848";
-}
-.icon-especiales:before {
-  content: "\e800";
-}
-.icon-habitacion:before {
-  content: "\e801";
-}
-.icon-ida-regreso:before {
-  content: "\e802";
-}
-.icon-ingreso:before {
-  content: "\e803";
-}
-.icon-salida:before {
-  content: "\e804";
-}
-.icon-ofertas:before {
-  content: "\e826";
-}
-.icon-pasajero:before {
-  content: "\e807";
-}
-.icon-search:before {
-  content: "\e808";
-}
-.icon-servicio:before {
-  content: "\e809";
-}
-.icon-vueloyauto:before {
-  content: "\e810";
-}
-.icon-cabina:before {
-  content: "\e811";
-}
-.icon-circuitos:before {
-  content: "\e812";
-}
-.icon-destino:before {
-  content: "\e819";
-}
-.icon-equipaje:before {
-  content: "\e820";
-}
-.icon-hotel:before {
-  content: "\e813";
-}
-.icon-twitter:before {
-  content: "\e853";
-}
-.icon-instagram:before {
-  content: "\e849";
-}
-.icon-linkedin:before {
-  content: "\e850";
-}
-.icon-youtube:before {
-  content: "\e851";
-}
-.icon-facebook:before {
-  content: "\e852";
-}
-.icon-login:before {
-  content: "\e821";
-}
-.icon-paquetes:before {
-  content: "\e814";
-}
-.icon-personas:before {
-  content: "\e822";
-}
-.icon-stair:before {
-  content: "\e806";
-}
-.icon-stair-light:before {
-  content: "\e805";
-}
-.icon-actividades:before {
-  content: "\e818";
-}
-.icon-autos:before {
-  content: "\e815";
-}
-.icon-avion:before {
-  content: "\e816";
-}
-.icon-avion-regreso:before {
-  content: "\e817";
-}
-.icon-ayuda:before {
-  content: "\e923";
-}
-.icon-corporativo:before {
-  content: "\e824";
-}
-.icon-Hora:before {
-  content: "\e825";
-}
-.icon-bebida:before {
-  content: "\e829 ";
-}
-.icon-alimentacion:before {
-  content: "\e830";
-}
-.icon-dinero:before {
-  content: "\e831";
-}
-.icon-pasaporte:before {
-  content: "\e832";
-}
-.icon-vacunacion:before {
-  content: "\e833";
-}
-.icon-visa:before {
-  content: "\e834";
-}
-.icon-caminar:before {
-  content: "\e835";
-}
-.icon-alerta:before {
-  content: "\e836";
-}
-.icon-cuotas:before {
-  content: "\e828";
-}
-.icon-transferencia:before {
-  content: "\e839";
-}
-.icon-pagos-efectivo:before {
-  content: "\e838";
-}
-.icon-medios-pago:before {
-  content: "\e837";
-}
-.icon-revista:before {
-  content: "\e840";
-}
-.icon-reservas:before {
-  content: "\e842";
-}
-.icon-requisitos:before {
-  content: "\e841";
-}
-.icon-seguridad:before {
-  content: "\e855";
-}
-.icon-puntos_colombia:before {
-  content: "\e856";
-}
-.icon-tarjeta:before {
-  content: "\e854";
-}
-.icon-menu:before {
-  content: "\e857";
-}
-.icon-menu-cerrar:before {
-  content: "\e858";
-}
+

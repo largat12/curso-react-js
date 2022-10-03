@@ -1,11 +1,14 @@
 .ElementCountProduct {
     width: 100%;
-    display: flex;
     margin-top: 10px;
-    flex-wrap: wrap;
+    padding: 0px;
 }
 
-.ElementCountProduct .contentCount {
+.ElementCountProduct .contentCount{
+    display: flex;
+}
+
+.ElementCountProduct .contentCount .count {
     width: auto;
     display: flex;
     border: 1px solid  rgb(0 0 0 / 5%);
@@ -13,7 +16,9 @@
     border-radius: 8px;
     overflow: hidden;
 }
-
+.ElementCountProduct .subtitulo {
+    margin-bottom: 5px;
+}
 .ElementCountProduct .contentCount .btnCount {
     width: 30px;
     height: 30px;
@@ -26,7 +31,6 @@
     border: none;
     outline: 0;
 }
-
 
 .ElementCountProduct .contentCount .btnCount svg {
     width: 10px;
@@ -47,7 +51,7 @@
     -webkit-user-select: none; /* Chrome, Safari, and Opera */
     -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
 }
-.ElementCountProduct button.btnAddCart {
+ button.btnAddCart {
     height: 30px;
     line-height: 28px;
     font-family: "Poppins", Helvetica, sans-serif;
@@ -55,10 +59,16 @@
     padding: 0px 10px;
     border: 1px solid rgb(0 0 0 / 5%);
     border-radius: 8px;
-    margin: 0px 0px 0px 10px;
+    margin: 10px 0px 0px 0px;
     outline: 0;
 }
-.ElementCountProduct button.btnAddCart.aggregate {
+ button.btnAddCart.aggregate {
+    background: transparent;
+    border:1px solid var(--red-portal-exito);
+    color: var(--red-portal-exito);
+}
+button.btnAddCart.added{
     background: var(--red-portal-exito);
+    border:1px solid var(--red-portal-exito);
     color: white;
 }

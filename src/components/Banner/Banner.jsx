@@ -1,18 +1,57 @@
+import { useState, useEffect } from 'react';
+import Carousel from 'react-bootstrap/Carousel';
+import { useLocation, useParams } from 'react-router-dom';
 import './banner.css';
 
-export function Banner(){
-    return (
-        <div id="banner">
-            <a href="https://www.viajesexito.com/vuelos-baratos/aerolineas/avianca" >
-                <picture className="desktop d-none d-md-block banner-computador">
-                    <source alt="avianca" srcSet="https://www.viajesexito.com/Portals/1/Skins/renovacion/img/semana43/AV-PRINCIPAL-DESKTOP_11zon.webp" />
-                    <img alt="avianca" src="https://www.viajesexito.com/portals/1/Skins/renovacion/img/semana43/1AV-PRINCIPAL-DESKTOP.jpg" /> 
-                </picture>
-                <picture className="mobile d-block d-md-none banner-movil">
-                    <source alt="avianca" srcSet="https://www.viajesexito.com/Portals/1/Skins/renovacion/img/semana43/AV-PRINCIPAL-MOBILE_11zon.webp" />
-                    <img alt="avianca" src="https://www.viajesexito.com/portals/1/Skins/renovacion/img/semana43/1AV-PRINCIPAL-MOBILE.jpg" /> 
-                </picture>
-            </a>
-        </div>
-    )
+export function Banner(props){
+    const [bannerContent, setBannerContent] = useState([]);
+    const [classCategory, setClassCategory] = useState("");
+
+    
+    let location = useLocation()
+    let locationPathname = location.pathname;
+    const params = useParams();
+    const categoria = params.id
+
+
+    useEffect( () =>{
+        //validar si viene por una categoria
+        if( (categoria !== undefined && categoria !== null) && String(locationPathname).indexOf("category") !== -1){
+            let itemBanner = props.data.find( (elementItemBanner) => {
+                return elementItemBanner.categoria === categoria.toLocaleLowerCase();
+            })
+            setBannerContent([itemBanner])
+            setClassCategory("banner-categoria")
+        }
+        else{
+            setBannerContent(props.data)
+        }
+    },[categoria, props.data, locationPathname])
+
+    let cantidadItemsBanner = bannerContent.length
+    if(cantidadItemsBanner === 1){
+        return (
+            <div id="banner" className={classCategory}>
+                {bannerContent.map( (elementBanner, index) => {
+                    return (<img key={index} className="d-block w-100" src={elementBanner.imagen} alt={elementBanner.alt}/>);
+                })}
+            </div>
+        )
+    }
+    else{
+        return (
+            <div id="banner">
+                <Carousel>
+                    {bannerContent.map( (elementBanner, index) => {
+                        return (<Carousel.Item key={index}><img key={index} className="d-block w-100" src={elementBanner.imagen} alt={elementBanner.alt}/></Carousel.Item>);
+                    })}
+                </Carousel>
+            </div>
+        )
+    }
+
+
+
+
+    
 }

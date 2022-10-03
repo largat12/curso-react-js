@@ -1,0 +1,56 @@
+.container-fluid.error-404 {
+    background: url(https://merkopolis.com.co/wp-content/uploads/2020/06/Inicio5-1920-x-1280.jpg) no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-error-404 > .row:before {
+    content: "404";
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    left: 0px;
+    font-size: 16rem;
+    font-family: "Roboto", Helvetica, sans-serif;
+    font-weight: 800;
+    line-height: 1;
+    top: -97px;
+    color: rgb(0 0 0 / 10%);
+    z-index: 0;
+}
+
+.content-error-404 > .row {
+    position: relative;
+}
+
+.content-error-404 > .row h1.titulo {
+    text-align: center;
+    color: var(--red-portal-exito);
+    font-weight: 800;
+    position: relative;
+    font-size: 3rem;
+}
+
+.content-error-404 > .row p {
+    text-align: center;
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.content-error-404 > .row a {
+    font-family: "Poppins", Helvetica, sans-serif;
+    font-size: 1rem;
+    padding: 9px 21px;
+    border-radius: 8px;
+    outline: 0;
+    display: inline-block;
+    background: var(--red-portal-exito);
+    width: auto;
+    margin: 0px auto;
+    position: relative;
+    color: white;
+    text-decoration: none;
+}

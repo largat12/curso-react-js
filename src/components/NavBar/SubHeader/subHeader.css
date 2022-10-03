@@ -1,0 +1,4 @@
+div#subHeader {
+    padding: 10px;
+    background: var(--red-portal-exito);
+}

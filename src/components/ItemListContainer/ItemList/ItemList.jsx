@@ -1,14 +1,20 @@
 
-import { Card } from "./Item/Item";
-export function ItemList(props){
+import { Item } from "./Item/Item";
 
+export function ItemList(props){
     const cardsProduct      = props.dataCard;
-    const cardsTypeProducto = props.dataTypeCard;
+    const cardsType         = props.typeCard == undefined ? "list": props.typeCard;
+    console.log("cardsType", cardsType)
+
     
+
+
     return ( 
-            cardsProduct.map( (card, index) => { 
-                return <Card key={index} type={cardsTypeProducto} pictureUrl={card.pictureUrl} destino={card.title} origen={card.description} imagen={card.imagen}  precio={card.price} puntos={card.puntos} stock={card.stock} categoria={card.categoria} />
-            })   
+        cardsProduct.map( (card, index) => { 
+            return (
+                <Item  key={index} id={card.id}  imagen={card.imagen} title={card.title} description={card.description} precio={card.price}  stock={card.stock} categoria={card.categoria} typeCard={cardsType}/>
+            )
+        })   
     )
 }
 

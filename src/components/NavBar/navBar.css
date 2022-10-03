@@ -27,7 +27,7 @@ header > .row > .container-menu {
 }
 header > .row > .container-menu > .row {
     margin: 0px;
-    justify-content: space-between;
+    justify-content: flex-end;
     width: 100%;
     align-items: center;
     align-content: center;

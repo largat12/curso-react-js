@@ -37,14 +37,15 @@
     margin-top: 0px;
     font-weight: 400;
     font-size: .8rem;
+    color: var(--red-portal-exito-texto);
 }
 .card .titulo-card-name {
-    color: #545454;
+    color: var(--red-portal-exito);
     text-align: left;
-    font-size: 1rem;
-    line-height: 1.2;
+    font-size: 1.5rem;
+    line-height: 1;
     font-weight: 700;
-    margin-bottom: 0px;
+    margin-bottom: 6px;
 }
 .card p {
     color: #545454;
@@ -54,12 +55,12 @@
     line-height: 1.2;
     margin-bottom: 0px;
 }
-.card  .precio {
+.card .precio, .card .precio-total{
     text-align: left;
     font-weight: 700;
     margin: 0px 0px;
     font-size: 1.4rem;
-    color: #545454;
+    color: var(--red-portal-exito-secundario);
     line-height: 1.2;
 }
 .card .puntos p{
@@ -69,4 +70,61 @@
 .card .puntos p img{
     margin-left: 6px;
     height: 1.2rem;
+}
+.card a {
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+.card.details {
+    box-shadow: none;
+    border: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: initial;
+    max-width: 1300px;
+    margin: 50px auto 0px auto;
+}
+
+.card.details > .content {flex: 0 0 50%;width: 50%;}
+
+.card.details img.imagen {
+    height: 500px;
+}
+
+.card.details .titulo-card-name {
+    font-size: 3rem;
+}
+
+.card.details .titulo-card {
+    font-size: 1.2rem;
+}
+
+.card.details .precio{
+    font-size: 2.5rem;
+}
+
+.card.details .precio-total{
+    font-size: 1.5rem;
+}
+
+.card.details .ElementCountProduct {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid black;
+}
+
+.card.details .ElementCountProduct > .row:nth-child(1) > div {
+    width: auto;
+}
+.container-card.col-element-3 .card {
+    flex-basis: calc(33.3333% - 1rem);
+}
+.container-card.col-element-4 .card {
+    flex-basis: calc(25% - 1rem);
 }
