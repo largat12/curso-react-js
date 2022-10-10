@@ -7,8 +7,9 @@ header {
 header > .row{
     max-width: 1300px;
     margin: 0px auto;
-    padding: 10px 36px;
+    padding: 10px 24px;
     transition: all .3s;
+    justify-content: space-between;
 }
 header > .row .container-logo {
     flex: 0 0 7rem;

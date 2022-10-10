@@ -1,8 +1,12 @@
 div#cardIconHeader {
     flex: 0 0 auto;
     width: auto;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    padding-right: 0px;
 }
-div#cardIconHeader {
+div#cardIconHeader .cardHeader{
     background: var(--red-portal-exito);
     display: flex;
     justify-content: center;
@@ -12,8 +16,20 @@ div#cardIconHeader {
     border-radius: 0px;
     transition: all .5s;
     cursor: pointer;
+    position: relative;
 }
 
-div#cardIconHeader svg {
+div#cardIconHeader .cardHeader svg {
     color: white;
+}
+div#cardIconHeader > .countTotal {
+    width: auto;
+    height: 20px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border-radius: 50px;
+    padding: 0px 5px;
 }

@@ -1,9 +1,28 @@
-
-
 import './item.css'
 import { ItemCount } from './ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
+import { useState, useEffect, useContext} from 'react';
+import { cardContext } from '../../../../context/cartContext';
+
 export function Item(props){
+  const [textAddCart, setTextAddCart] = useState([{}])
+  useEffect(()=> {
+      setTextAddCart({"state":true})
+  }, [])
+  const {addItem} = useContext(cardContext)
+    
+  function onAdd(countProduct, totalPrecio){
+      if(textAddCart.state){
+          setTextAddCart({"state":false})
+          let itemAddToCard = props
+          addItem(itemAddToCard, countProduct, totalPrecio)
+      }
+      else{
+          setTextAddCart({"state":true})
+      }
+  }
+
+
   let content = <>
                   <Link  to={"/item/"+props.id}>
                     <h3 className='titulo-card-name'>{props.title}</h3>
@@ -24,7 +43,9 @@ export function Item(props){
         <div className="content">
           {props.typeCard === "details" ? content : ""}
           <h6 className='precio'>$ {new Intl.NumberFormat("es-CO").format(Math.trunc(props.precio))}</h6>
-          <ItemCount stock={props.stock} precio={props.precio}/>
+
+          
+          <ItemCount onAddClick={onAdd} stock={props.stock} precio={props.precio} textAddCart={textAddCart}/>
         </div>
       
     </div>

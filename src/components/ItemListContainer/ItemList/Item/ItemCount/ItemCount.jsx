@@ -1,19 +1,17 @@
 import './itemCount.css'
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
 
 export function ItemCount(props){
     const stock = parseInt(props.stock)
     const precio = parseInt(props.precio)
     const [countProduct, setCountProduct] = useState(1)
-    const [textAddCart, setTextAddCart] = useState([{}])
     const [totalPrecio, setTotalPrecio] = useState(parseInt(props.precio))
 
-    useEffect(()=> {
-        setTextAddCart([{"text":"Agregar al carrito", "state":true, "class":"aggregate"}])
-    }, [])
+    
 
     function handleAddCountProduct(){
         if (countProduct < stock){
@@ -29,18 +27,14 @@ export function ItemCount(props){
     }
     
 
-
-
-
-
-    function handleTextAddCart(){
-        if(textAddCart[0].state){
-            setTextAddCart([{"text":"Añadido al carrito", "state":false, "class":"added"}])
-        }
-        else{
-            setTextAddCart([{"text":"Agregar al carrito", "state":true, "class":"aggregate"}])
-        }
+    function handleAddToCard(evt){
+        evt.preventDefault();
+        props.onAddClick(countProduct, totalPrecio)
     }
+
+
+
+    
     
     
 
@@ -69,7 +63,13 @@ export function ItemCount(props){
             </div>
             <div className='row'>
                 <div className='col-12'>
-                    <button className={"btnAddCart "+textAddCart[0].class}  onClick={handleTextAddCart}>{textAddCart[0].text}</button>
+                    {
+                        props.textAddCart.state ?
+                        <button className="btnAddCart aggregate"  onClick={handleAddToCard}>Agregar al carrito</button> 
+                        :
+                        <Link to="/cart/"><button className='btnAddCart added'>Ver carrito</button></Link>
+                        
+                    }
                 </div>
             </div>
         </div>
