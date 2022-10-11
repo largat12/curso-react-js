@@ -44,13 +44,13 @@ export function ItemListContainer(props){
             })
 
         }
-    },[categoria])
+    },[categoria, categoryId, location.pathname])
 
     return(
         <div className='contenedor-page'>
             <div className='row'>
                 {props.title !== "" ? <h1 className='titulos'>{props.title}</h1> : "" }
-                <div className={`container-card col-element-${props.colElements}`}>
+                <div className={`container ${props.viewProduct} col-element-${props.colElements} col-12`}>
                     <ItemList dataCard={dataCard} typeCard={props.viewProduct}/>
                 </div>
                   

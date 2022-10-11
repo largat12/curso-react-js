@@ -1,4 +1,10 @@
-.container-card {
+
+.container.list > div {
+    flex: 0 0 calc(calc(100% / 3) - 1rem);
+    width: calc(calc(100% / 3) - 1rem);
+}
+
+.container.list {
     display: flex;
     width: 100%;
     flex-wrap: wrap;
