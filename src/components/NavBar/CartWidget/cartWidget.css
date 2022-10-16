@@ -22,7 +22,7 @@ div#cardIconHeader .cardHeader{
 div#cardIconHeader .cardHeader svg {
     color: white;
 }
-div#cardIconHeader > .countTotal {
+div#cardIconHeader  .countTotal {
     width: auto;
     height: 20px;
     background: white;
@@ -32,4 +32,15 @@ div#cardIconHeader > .countTotal {
     align-content: center;
     border-radius: 50px;
     padding: 0px 5px;
+}
+div#cardIconHeader > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+div#cardIconHeader > a span.countTotal {
+    margin-left: 8px;
+    color: var(--red-portal-exito-texto);
 }

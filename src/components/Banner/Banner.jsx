@@ -24,22 +24,26 @@ export function Banner(props){
             setClassCategory("banner-categoria")
         }
         else{
+            console.log("props.data", props.data)
             setBannerContent(props.data)
         }
     },[categoria, props.data, locationPathname])
 
+
+
     let cantidadItemsBanner = bannerContent.length
-    if(cantidadItemsBanner === 1){
+
+    console.log(bannerContent)
+    if(bannerContent.indexOf(undefined) === -1){
         return (
+            cantidadItemsBanner === 1 
+            ?
             <div id="banner" className={classCategory}>
                 {bannerContent.map( (elementBanner, index) => {
                     return (<img key={index} className="d-block w-100" src={elementBanner.imagen} alt={elementBanner.alt}/>);
                 })}
             </div>
-        )
-    }
-    else{
-        return (
+            :
             <div id="banner">
                 <Carousel>
                     {bannerContent.map( (elementBanner, index) => {
@@ -49,6 +53,13 @@ export function Banner(props){
             </div>
         )
     }
+    
+
+    
+        
+
+    
+    
 
 
 

@@ -30,7 +30,6 @@ export function Item(props){
                   <h5 className='titulo-card'>Valor por {props.description.toLowerCase()}</h5>
                 </>;
   
-
   return(
     <div key={props.id} className={`card ${props.typeCard}`}>
         <div className="content">
@@ -38,7 +37,7 @@ export function Item(props){
             <img className='imagen' src={props.imagen} alt={props.title}/>
           </Link>
           {props.typeCard === "list" ? content : ""}
-          
+          {props.typeCard === "carousel" ? content : ""}
         </div>
         <div className="content">
           {props.typeCard === "details" ? content : ""}

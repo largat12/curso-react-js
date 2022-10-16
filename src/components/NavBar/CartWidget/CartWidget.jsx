@@ -10,23 +10,25 @@ import { useContext} from 'react';
 import { cardContext } from '../../../context/cartContext';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 
 export function CartWidget(){
     const [count, setCount] = useState(0)
     const {totalItemsCount} = useContext(cardContext)
     useEffect( ()=>{
-        
         setCount(totalItemsCount())
     },[totalItemsCount] )
    
     
     return(
         <div className='contentCardHeader' id="cardIconHeader">
-            <div className="cardHeader" >
-                <FontAwesomeIcon icon={faCartShopping} />
-            </div>
-            {count === 1 ? <span className='countTotal'>{count} item</span> : <span className='countTotal'>{count} items</span>}
+            <Link to="/cart/">
+                <div className="cardHeader" >
+                    <FontAwesomeIcon icon={faCartShopping} />
+                </div>
+                {count === 1 ? <span className='countTotal'>{count} item</span> : <span className='countTotal'>{count} items</span>}
+            </Link>
         </div>
     )
 

@@ -10,3 +10,11 @@
     flex-wrap: wrap;
     padding: 0px;
 }
+.container.carousel {
+    position: relative;
+    display: flex;
+}
+.container.carousel .slick-slider {
+    flex: 0 0 100%;
+    width: 100%;
+}

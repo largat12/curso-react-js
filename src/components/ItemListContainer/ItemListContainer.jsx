@@ -1,62 +1,63 @@
 
 import './itemListContainer.css'
-import { getProductos, getProductoCategory } from '../../mockApi/mockApiProductos';
 import { useState, useEffect } from 'react';
 import { ItemList } from './ItemList/ItemList';
 import { useLocation, useParams } from 'react-router-dom';
+import { getProductos, getProductoCategory} from '../../servicios/firebase';
+import { ErrorLoading } from '../ErrorLoading/ErrorLoading';
 
 
 export function ItemListContainer(props){
     const [dataCard, setDataCard] = useState([])
     const [categoryId, setCategoryId] = useState([])
+    const [feedBackMsg, setFeedBackMsg] = useState(null)
 
     let location = useLocation();
     const params = useParams();
     const categoria = params.id
     
-
+    
     
     useEffect( () =>{
         //validar si viene por una categoria
-        if( (categoria !== undefined && categoria !== null) && String(location.pathname).indexOf("category") !== -1){
-            if(categoryId !== categoria){
-                setDataCard([])
+        if(categoryId !== categoria){
+            setDataCard([])
+            if( (categoria !== undefined && categoria !== null) && String(location.pathname).indexOf("category") !== -1){ 
+                getProductoCategory(categoria).then( (respuestaCompletada) => {
+                    setDataCard(respuestaCompletada)
+                    setCategoryId(categoria)
+                })
+                .catch( (respuestaError)=> {
+                    setFeedBackMsg(respuestaError.message) 
+                })
             }
-            getProductoCategory(categoria).then( (respuestaCompletada) => {
-                console.log("consulta completada por categoria")
-                setDataCard(respuestaCompletada)
-                setCategoryId(categoria)
-            })
-            .catch( (respuestaError)=> {
-               console.log('error en consulta por categoria', respuestaError) 
-            })
-        }
-        else{
-            if(categoryId !== categoria){
-                setDataCard([])
-            }
-            getProductos().then( (respuestaCompletada) => {
-                console.log("consulta completada todos los productos")
-                setDataCard(respuestaCompletada)
-            })
-            .catch( (respuestaError)=> {
-               console.log('error en consulta todos los productos', respuestaError) 
-            })
+            else{
+                getProductos().then( (respuestaCompletada) => {
+                    setDataCard(respuestaCompletada) 
+                })
+                .catch( (respuestaError)=> {
+                    setFeedBackMsg(respuestaError.message) 
+                })
 
+            }
         }
     },[categoria, categoryId, location.pathname])
 
-    return(
-        <div className='contenedor-page'>
-            <div className='row'>
-                {props.title !== "" ? <h1 className='titulos'>{props.title}</h1> : "" }
-                <div className={`container ${props.viewProduct} col-element-${props.colElements} col-12`}>
-                    <ItemList dataCard={dataCard} typeCard={props.viewProduct}/>
+    
+    return  (
+                feedBackMsg 
+                ?
+                <ErrorLoading errorMessage={feedBackMsg}/>
+                :
+                <div className='contenedor-page'>
+                    <div className='row'>
+                        {props.title !== "" ? <h1 className='titulos'>{props.title}</h1> : "" }
+                        <div className={`container ${props.viewProduct} col-element-${props.colElements} col-12`}>
+                            <ItemList dataCard={dataCard} typeCard={props.viewProduct} colElements={props.colElements}/>
+                        </div>
+                        
+                    </div>
                 </div>
-                  
-            </div>
-        </div>
-      
-    );
+            );
   
 }

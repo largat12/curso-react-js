@@ -88,9 +88,7 @@ const data =  [{
     'imagen':'https://merkopolis.com.co/wp-content/uploads/2020/06/Banano-criollo-1-770-x-627.jpg',
     'title':'Banano Criollo',
     'description': 'Libra',
-    'price': 
-    
-    1000,
+    'price': 1000,
     'stock': 60,
     'categoria':'frutas',
 },
@@ -236,12 +234,15 @@ export function getProductos(){
     })
 }
 export function getProducto(id){
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
         console.log('realizando consulta todos los productos')
+        let producto = data.find( (elemento)=> {
+            return elemento.id === id
+        })
         setTimeout(()=>{
-            let producto = data.find( (elemento)=> {
-                return parseInt(elemento.id) === id
-            })
+            if(producto === undefined){
+                reject(new Error("No se encontro el producto seleccionado"))
+            }
             resolve(producto)
         }, 2000)
         

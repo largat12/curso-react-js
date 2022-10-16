@@ -10,9 +10,23 @@ export function CartContextProvider(props){
         let item = {...itemAddToCard}
         item["countProduct"] = countProduct
         item["totalPrecio"] = totalPrecio
-
         let newCart = [...cart]
-        newCart.push(item)
+        //saber si un elemento ya existe
+        let producto = newCart.some( (elemento) => {
+            return elemento['id'] === item.id
+        })
+        if(producto === true){
+            newCart.map( (elemento) => {
+                if(elemento.id === item.id){
+                    elemento.countProduct   = elemento.countProduct + item.countProduct
+                    elemento.totalPrecio    = elemento.totalPrecio + item.totalPrecio
+                }
+                return elemento
+            })
+        }
+        else{
+            newCart.push(item)
+        }
         setCart(newCart)
     }
 
