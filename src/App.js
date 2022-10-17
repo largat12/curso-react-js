@@ -6,11 +6,12 @@ import { Banner } from './components/Banner/Banner';
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
 import { NavBar }           from './components/NavBar/NavBar';
 import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
-import { BannerInicio, BannerCategorias, BannerProducto} from './Helpers/itemsBanners';
+import { BannerInicio, BannerCategorias, BannerProducto, BannerCarritoCompras, BannerCheckout} from './Helpers/itemsBanners';
 import { Error404 } from './components/404/404';
 import { CartContextProvider } from './context/cartContext';
 import { TitleComponent } from './title/Title';
 import { CartView } from './components/CartView/CartView';
+import { Footer } from './components/Footer/Footer';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
                 <NavBar />
                 <Banner data={BannerInicio}/>
                 <ItemListContainer title="Productos Destacados" viewProduct="carousel" colElements="4" />
+                <Footer />
               </>
             }/>
             {/** Vista pagina de producto**/}
@@ -43,7 +45,7 @@ function App() {
                     </div>
                   </div>
                 </div>
-                
+                <Footer />
               </>
             }/>
             {/** Vista de cada categoria de productos**/}
@@ -60,7 +62,7 @@ function App() {
                     </div>
                   </div>
                 </div>
-                
+                <Footer />
               </>
             }/>
             {/** Vista de cada producto **/}
@@ -69,14 +71,41 @@ function App() {
                 <TitleComponent title={"Producto"} />
                 <NavBar />
                 <ItemDetailContainer viewProduct="list"/>
+                <Footer />
               </>
             }/>
-            {/**  PVista de carrito**/}
+            {/**  Vista de carrito**/}
             <Route path='/cart/' element={
               <>
                 <TitleComponent title={"Carrito"} />
                 <NavBar />
-                <CartView />
+                <div className='container'>
+                  <div className='row'>
+                    <div className='col-12'>
+                      <Banner data={BannerCarritoCompras}/>
+                      <CartView />
+                    </div>
+                  </div>
+                </div>  
+                
+                <Footer />
+              </>
+              
+            } />
+            {/**  Vista de checkout**/}
+            <Route path='/checkout/' element={
+              <>
+                <TitleComponent title={"Detalls de la orden"} />
+                <NavBar />
+                <div className='container'>
+                  <div className='row'>
+                    <div className='col-12'>
+                      <Banner data={BannerCheckout}/>
+                    </div>
+                  </div>
+                </div>  
+                
+                <Footer />
               </>
               
             } />

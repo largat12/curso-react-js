@@ -34,4 +34,18 @@ export const BannerProducto = [
     categoria:"producto",
   },
 ];
+export const BannerCarritoCompras = [
+  {
+    imagen:"/img/banner-carrito-de-compras.jpg",
+    alt:"",
+    categoria:"carrito",
+  },
+];
+export const BannerCheckout = [
+  {
+    imagen:"/img/banner-detalles-del-pedido.jpg",
+    alt:"",
+    categoria:"checkout",
+  },
+];
 

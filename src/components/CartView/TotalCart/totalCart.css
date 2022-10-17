@@ -1,0 +1,46 @@
+.container.total.carrito {
+    background: #f2f2f2;
+    padding: 20px;
+}
+
+.container.total.carrito .titulo {
+    text-align: center;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: "Raleway", Helvetica, sans-serif;
+}
+
+.container.total.carrito .subTotal, .container.total.carrito .total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    margin: 5px 0px;
+    padding: 5px 0px;
+    border-bottom: 1px solid black;
+    font-family: "Raleway", Helvetica, sans-serif;
+}
+
+.container.total.carrito .subTotal .texto, .container.total.carrito .total .texto {
+    text-transform: uppercase;
+}
+.container.total.carrito .btn.finalizar {
+    width: 100%;
+    border: none;
+    border-radius: 0px;
+    padding: 0px;
+}
+
+.container.total.carrito .btn.finalizar > a {
+    display: block;
+    padding: 8px;
+    background: var(--red-portal-exito);
+    color: white;
+    font-family: "Raleway", Helvetica, sans-serif;
+    text-decoration: none;
+    transition: all .5s;
+}
+
+.container.total.carrito .btn.finalizar > a:hover {
+    background: var(--red-portal-exito-hover);
+}

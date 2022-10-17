@@ -1,0 +1,86 @@
+.item.cart > div {
+    border: 1px solid rgb(0 0 0 / 5%);
+    border-bottom: 0px;
+}
+.item.cart:last-child > div {
+    border: 1px solid rgb(0 0 0 / 5%) !important;
+}
+
+.item.cart > div .imagen img {
+    width: 100%;
+}
+.item.cart > div .titulo {
+    color: var(--red-portal-exito);
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1;
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.item.cart > div .precio, .item.cart > div .cantidad, .item.cart > div .totalPrecio {
+    color: var(--red-portal-exito-texto);
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1;
+    font-weight: 500;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.item.cart > div .elemento p {
+    margin-bottom: 0px;
+}
+.item.cart > div .eliminar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item.cart > div .eliminar svg {
+    padding: 5px;
+    border: 1px solid #8f8f8f;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    color: #8f8f8f;
+    cursor:pointer;
+    transition: all .5s;
+}
+.item.cart > div .eliminar svg:hover{
+    box-shadow: 0px 0px 14px 0px rgb(52 99 188 / 20%);
+    border: 1px solid var(--red-portal-exito);
+    color: var(--red-portal-exito);
+}
+
+.container.carrito.compras .cabecera .elementos p {
+    margin: 0px;
+}
+
+.container.carrito.compras {
+    margin-top: 20px;
+}
+
+.container.carrito.compras .cabecera > div {
+    background: #e1e1e1;
+    border-radius: 0px;
+}
+
+.container.carrito.compras .cabecera > div > .row {
+    padding: 8px 10px;
+}
+
+.container.carrito.compras .cabecera .elementos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--red-portal-exito-texto);
+    font-size: .8rem;
+}
+
+.container.carrito.compras .cabecera .elementos.titulo {
+    justify-content: flex-start;
+}

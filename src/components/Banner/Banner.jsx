@@ -24,7 +24,6 @@ export function Banner(props){
             setClassCategory("banner-categoria")
         }
         else{
-            console.log("props.data", props.data)
             setBannerContent(props.data)
         }
     },[categoria, props.data, locationPathname])
@@ -33,7 +32,6 @@ export function Banner(props){
 
     let cantidadItemsBanner = bannerContent.length
 
-    console.log(bannerContent)
     if(bannerContent.indexOf(undefined) === -1){
         return (
             cantidadItemsBanner === 1 

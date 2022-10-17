@@ -16,7 +16,7 @@ export function NavBar(){
                 
                 <div className='row'>
                     <div className='container-logo'>
-                        <Logo altImage='Viajes Éxito'/>
+                        <Logo altImage='Merkopolis'/>
                     </div>
                     <div className='container-menu container-fluid'>
                         <div className='row'>

@@ -1,9 +1,24 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 //se crea el contexto
 export const cardContext = createContext()
 //se exporta la funcion donde metetere los elementos que van acceder al conteto
 export function CartContextProvider(props){
     const [cart, setCart] = useState([])
+
+
+    useEffect( () => {
+        if(cart.length === 0  && sessionStorage.getItem("cart").length >= 0 && sessionStorage.getItem("cart") !== null){
+            let content = JSON.parse(sessionStorage.getItem("cart"))
+            console.log("content", content)
+            setCart( content )
+        }
+    },[cart.length] )
+
+    //funcion de cargar SessionStorage
+
+    function loadSessionStorage(data){
+        sessionStorage.setItem("cart", JSON.stringify(data) )
+    }
 
     //funcion añadir items al carrito
     function addItem(itemAddToCard, countProduct, totalPrecio){
@@ -28,6 +43,14 @@ export function CartContextProvider(props){
             newCart.push(item)
         }
         setCart(newCart)
+        loadSessionStorage(newCart)
+    }
+    
+    function removeItem(itemId){
+        let newCart = [...cart]
+        newCart = newCart.filter((item) => item.id !== itemId)
+        setCart(newCart)
+        loadSessionStorage(newCart)
     }
 
     function totalItemsCount(){
@@ -40,8 +63,17 @@ export function CartContextProvider(props){
         //return totalCount;
     }
 
+    function totalPrecioItems(){
+        let precioTotal = 0
+        let newTotalPrecio = [...cart]
+        newTotalPrecio.forEach( (item) =>{
+            precioTotal += item.totalPrecio
+        } )
+        return precioTotal
+    }
+
     return(
-        <cardContext.Provider value={ {cart, addItem, totalItemsCount} }>
+        <cardContext.Provider value={ {cart, addItem, totalItemsCount, removeItem, totalPrecioItems} }>
             {props.children}
         </cardContext.Provider>
     )
