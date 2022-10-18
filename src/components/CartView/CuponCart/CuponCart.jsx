@@ -30,10 +30,14 @@ export function CuponCart(){
     function  handleSubmit(evt) {
         evt.preventDefault();
         let valor = evt.target.couponCode.value
-        if( valor !== '' ){
+        console.log("cupon", cupon)
+        if( valor !== '' && cupon === null){
             setMensajeCupon("")
             setValueSubmit("Cargando...")
             setCupon(valor.toUpperCase())
+        }
+        else if(cupon !== null){
+            setMensajeCupon(<p className="mensaje cupon advertencia">Disculpanos solo puedes aplicar un cupón por pedido</p>) 
         }
         else{
             setMensajeCupon(<p className="mensaje cupon advertencia">* Ingrese un cupón</p>)

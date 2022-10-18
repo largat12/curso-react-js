@@ -91,7 +91,7 @@ export function CartContextProvider(props){
             let subTotal = subTotalPrecio
             let cupon = cuponPrecio.valor
             let total = subTotal - cupon
-            setTotalPrecio(total)
+            setTotalPrecio(total < 0 ? 0 : total)
         }
         else{
             let precioTotal = 0
