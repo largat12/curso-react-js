@@ -1,0 +1,50 @@
+.container.carrito.compras .opciones {
+    margin-top: 20px;
+}
+.container.carrito.compras .opciones input#couponCode {
+    box-sizing: border-box;
+    border: 1px solid #d3ced2;
+    padding: 8px;
+    margin: 0 4px 0 0;
+    outline: 0;
+    font-family: "Raleway", Helvetica, sans-serif;
+    border-radius: 6px;
+    font-size: .8rem;
+}
+.container.carrito.compras .opciones input#couponSubmit {
+    box-sizing: border-box;
+    border: 1px solid var(--red-portal-exito);
+    padding: 8px 16px;
+    margin: 0 4px 0 0;
+    outline: 0;
+    font-family: "Raleway", Helvetica, sans-serif;
+    border-radius: 6px;
+    font-size: .8rem;
+    background: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--red-portal-exito);
+    transition: all .5s;
+}
+
+.container.carrito.compras .opciones input#couponSubmit:hover {
+    background: var(--red-portal-exito);
+    color: white;
+}
+.container.carrito.compras .opciones .mensaje.cupon {
+    font-size: .8rem;
+    font-weight: 700;
+}
+
+.container.carrito.compras .opciones .mensaje.cupon.advertencia {
+    font-style: italic;
+    color: red;
+}
+
+.container.carrito.compras .opciones .mensaje.cupon.error {
+    color: red;
+}
+
+.container.carrito.compras .opciones .mensaje.cupon.exito {
+    color: #00c500;
+}

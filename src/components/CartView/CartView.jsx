@@ -1,19 +1,15 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext} from "react";
 import { cardContext } from "../../context/cartContext";
+import { CuponCart } from "./CuponCart/CuponCart";
 import { ItemCartView } from "./ItemCartView/ItemCartView";
 import { TotalCart } from "./TotalCart/TotalCart";
 
 export function CartView(){
-    const { cart, removeItem, totalPrecioItems} = useContext(cardContext)
-    const [totalPrecio, setTotalPrecio] = useState(0)
-
+    const { cart, removeItem, subTotalPrecio, cuponPrecio, totalPrecio} = useContext(cardContext)
     function handleRemoveItemCart(itemId){
         removeItem(itemId)
     }
 
-    useEffect(()=>{
-        setTotalPrecio(totalPrecioItems())
-    },[totalPrecioItems])
 
     return(
         cart.length !== 0 
@@ -51,12 +47,21 @@ export function CartView(){
                                 })
                             } 
                             </div>
+                            <div className="row">
+                                <div className='col-12 opciones' >
+                                    <div className='container p-0'>
+                                        <div className='row'>
+                                            <CuponCart />
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className="col-4">
                         <div className="container total carrito">
                             <div className="row">
-                                <TotalCart totalPrecio={totalPrecio} />
+                                <TotalCart subTotalPrecio={subTotalPrecio} cuponPrecio={cuponPrecio} totalPrecio={totalPrecio}/>
                             </div>
                         </div>
                         
