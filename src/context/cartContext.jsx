@@ -7,7 +7,8 @@ export function CartContextProvider(props){
 
 
     useEffect( () => {
-        if(cart.length === 0  && sessionStorage.getItem("cart").length >= 0 && sessionStorage.getItem("cart") !== null){
+        console.log("items", cart.length)
+        if(cart.length === 0  && sessionStorage.getItem("cart") !== null){
             let content = JSON.parse(sessionStorage.getItem("cart"))
             console.log("content", content)
             setCart( content )
