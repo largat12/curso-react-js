@@ -9,13 +9,14 @@ export function CartContextProvider(props){
     const [totalPrecio, setTotalPrecio] = useState(0)
 
     useEffect( () => {
+        console.log(cart)
         if(cart.length === 0  && sessionStorage.getItem("cart") !== null){
             let content = JSON.parse(sessionStorage.getItem("cart"))
             setCart( content )
         }
         subTotalPrecioItems()
         totalPrecioItems()
-    },[cart.length, cuponPrecio] )
+    },[cart.length, cuponPrecio, subTotalPrecioItems, totalPrecioItems] )
 
     //funcion de cargar SessionStorage
     function loadSessionStorage(data){
@@ -24,6 +25,7 @@ export function CartContextProvider(props){
     //funcion añadir items al carrito
     function addItem(itemAddToCard, countProduct, totalPrecio){
         let item = {...itemAddToCard}
+        
         item["countProduct"] = countProduct
         item["totalPrecio"] = totalPrecio
         let newCart = [...cart]
@@ -43,6 +45,7 @@ export function CartContextProvider(props){
         else{
             newCart.push(item)
         }
+        console.log("newCart", newCart)
         setCart(newCart)
         loadSessionStorage(newCart)
     }

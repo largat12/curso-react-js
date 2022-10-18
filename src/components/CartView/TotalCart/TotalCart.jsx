@@ -6,8 +6,6 @@ export function TotalCart(props){
     const precioSubTotal    = props.subTotalPrecio
     const precioTotal       = props.totalPrecio
     let cuponContenido = ''
-    console.log(cupon)
-
     if(cupon !== 0 && typeof cupon === 'object'){
         cuponContenido = <div className="cupon">
                             <div className="texto">Cupón: {cupon.nombre}</div>

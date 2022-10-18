@@ -25,7 +25,7 @@ export function CuponCart(){
             } )
             
         }
-    },[cupon] )
+    },[cupon, searchCupon] )
 
     function  handleSubmit(evt) {
         evt.preventDefault();
