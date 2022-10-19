@@ -22,6 +22,7 @@ export function CuponCart(){
             .catch( (error) => {
                 setMensajeCupon(<p className="mensaje cupon error">Cupón no es valido</p>)
                 setValueSubmit("Aplicar cupón")
+                setCupon(null)
             } )
             
         }
@@ -36,14 +37,17 @@ export function CuponCart(){
             setValueSubmit("Cargando...")
             setCupon(valor.toUpperCase())
         }
-        else if(cupon !== null){
+        else if(cupon !== null && typeof cupon === 'object'){
+            setCupon(null)
             setMensajeCupon(<p className="mensaje cupon advertencia">Disculpanos solo puedes aplicar un cupón por pedido</p>) 
         }
         else{
+            setCupon(null)
             setMensajeCupon(<p className="mensaje cupon advertencia">* Ingrese un cupón</p>)
             setTimeout(()=>{
                 setMensajeCupon("")
             },3000)
+            
         }
     }
     
