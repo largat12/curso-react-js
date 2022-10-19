@@ -4,18 +4,19 @@ export const cardContext = createContext()
 //se exporta la funcion donde metetere los elementos que van acceder al conteto
 export function CartContextProvider(props){
     const [cart, setCart] = useState([])
-    const [subTotalPrecio, setSubTotalPrecio] = useState(0)
+    const [dataCupon, setDatacupon] = useState([])
     const [cuponPrecio, setCuponPrecio] = useState(0)
+    const [subTotalPrecio, setSubTotalPrecio] = useState(0)
     const [totalPrecio, setTotalPrecio] = useState(0)
 
     useEffect( () => {
-        console.log(cart)
         if(cart.length === 0  && sessionStorage.getItem("cart") !== null){
             let content = JSON.parse(sessionStorage.getItem("cart"))
             setCart( content )
         }
         subTotalPrecioItems()
         totalPrecioItems()
+        aplicarCupon(dataCupon, subTotalPrecio, totalPrecio)
     },[cart.length, cuponPrecio, subTotalPrecioItems, totalPrecioItems] )
 
     //funcion de cargar SessionStorage
@@ -48,6 +49,7 @@ export function CartContextProvider(props){
         console.log("newCart", newCart)
         setCart(newCart)
         loadSessionStorage(newCart)
+        
     }
     //funcion remover item del carrito
     function removeItem(itemId){
@@ -77,16 +79,25 @@ export function CartContextProvider(props){
     }
     //funcion para buscar el cupon
     function searchCupon(cupon){
-        let dataCupon = [...cupon];
+        let searchDataCupon = [...cupon];
         let subTotal = subTotalPrecio
         let valor = 0
-        if(dataCupon[0].tipo === "porcentaje"){
-            valor = dataCupon[0].valor*(subTotal/100)
+        setDatacupon(searchDataCupon)
+        aplicarCupon(searchDataCupon, subTotal, valor)
+        
+
+    }
+    //funcion aplicar cupon
+    function aplicarCupon(dataCupon, subTotal, valor){
+        if(dataCupon.length !== 0){
+            if(dataCupon[0].tipo === "porcentaje"){
+                valor = dataCupon[0].valor*(subTotal/100)
+            }
+            else if(dataCupon[0].tipo === "valor"){
+                valor = dataCupon[0].valor
+            }
+            setCuponPrecio( {id:dataCupon[0].id,nombre:dataCupon[0].cupon,valor:valor} )
         }
-        else if(dataCupon[0].tipo === "valor"){
-            valor = dataCupon[0].valor
-        }
-        setCuponPrecio( {id:dataCupon[0].id,nombre:dataCupon[0].cupon,valor:valor} )
     }
     //funcion suma total de valores items  - cupon
     function totalPrecioItems(){
