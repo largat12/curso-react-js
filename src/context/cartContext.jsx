@@ -14,10 +14,15 @@ export function CartContextProvider(props){
             let content = JSON.parse(sessionStorage.getItem("cart"))
             setCart( content )
         }
-        subTotalPrecioItems()
-        totalPrecioItems()
-        aplicarCupon(dataCupon, subTotalPrecio, totalPrecio)
-    },[cart.length, cuponPrecio, subTotalPrecioItems, totalPrecioItems] )
+    },[cart] )
+    
+    useEffect( () =>{
+        subTotalPrecioItems();
+        aplicarCupon(dataCupon)
+        totalPrecioItems();
+    },[cart, dataCupon, cuponPrecio])
+
+
 
     //funcion de cargar SessionStorage
     function loadSessionStorage(data){
@@ -46,7 +51,6 @@ export function CartContextProvider(props){
         else{
             newCart.push(item)
         }
-        console.log("newCart", newCart)
         setCart(newCart)
         loadSessionStorage(newCart)
         
@@ -70,6 +74,7 @@ export function CartContextProvider(props){
     }
     //funcion para obtener subtotal del valor de los items
     function subTotalPrecioItems(){
+        console.log('subtotal precio')
         let precioTotal = 0
         let newTotalPrecio = [...cart]
         newTotalPrecio.forEach( (item) =>{
@@ -79,24 +84,24 @@ export function CartContextProvider(props){
     }
     //funcion para buscar el cupon
     function searchCupon(cupon){
+        console.log("ingreso respuesta cupon")
         let searchDataCupon = [...cupon];
-        let subTotal = subTotalPrecio
-        let valor = 0
         setDatacupon(searchDataCupon)
-        aplicarCupon(searchDataCupon, subTotal, valor)
         
-
     }
-    //funcion aplicar cupon
-    function aplicarCupon(dataCupon, subTotal, valor){
-        if(dataCupon.length !== 0){
-            if(dataCupon[0].tipo === "porcentaje"){
-                valor = dataCupon[0].valor*(subTotal/100)
+    function aplicarCupon(searchDataCupon){
+        console.log("searchDataCupon", searchDataCupon.length)
+        if(searchDataCupon.length !== 0){
+            let valor = 0
+            if(searchDataCupon[0].tipo === "porcentaje"){
+                valor = searchDataCupon[0].valor*(subTotalPrecio/100)
             }
-            else if(dataCupon[0].tipo === "valor"){
-                valor = dataCupon[0].valor
+            else if(searchDataCupon[0].tipo === "valor"){
+                valor = searchDataCupon[0].valor
             }
-            setCuponPrecio( {id:dataCupon[0].id,nombre:dataCupon[0].cupon,valor:valor} )
+            if(cuponPrecio.valor !== valor){
+                setCuponPrecio( {id:searchDataCupon[0].id,nombre:searchDataCupon[0].cupon,valor:valor} )
+            }
         }
     }
     //funcion suma total de valores items  - cupon
@@ -108,6 +113,7 @@ export function CartContextProvider(props){
             setTotalPrecio(total < 0 ? 0 : total)
         }
         else{
+            console.log('total precio')
             let precioTotal = 0
             let newTotalPrecio = [...cart]
             newTotalPrecio.forEach( (item) =>{
