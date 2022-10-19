@@ -17,10 +17,52 @@ export function CartContextProvider(props){
     },[cart] )
     
     useEffect( () =>{
+        //funcion para obtener subtotal del valor de los items
+        const subTotalPrecioItems = () =>{
+            let precioTotal = 0
+            let newTotalPrecio = [...cart]
+            newTotalPrecio.forEach( (item) =>{
+                precioTotal += item.totalPrecio
+            } )
+            setSubTotalPrecio(precioTotal) 
+        }
         subTotalPrecioItems();
+        const aplicarCupon = (searchDataCupon) => {
+            if(searchDataCupon.length !== 0){
+                let valor = 0
+                if(searchDataCupon[0].tipo === "porcentaje"){
+                    valor = searchDataCupon[0].valor*(subTotalPrecio/100)
+                }
+                else if(searchDataCupon[0].tipo === "valor"){
+                    valor = searchDataCupon[0].valor
+                }
+                if(cuponPrecio.valor !== valor){
+                    setCuponPrecio( {id:searchDataCupon[0].id,nombre:searchDataCupon[0].cupon,valor:valor} )
+                }
+            }
+        }
         aplicarCupon(dataCupon)
+        //funcion suma total de valores items  - cupon
+        const totalPrecioItems = () => {
+            if(cuponPrecio !== 0 && typeof cuponPrecio === 'object'){
+                let subTotal = subTotalPrecio
+                let cupon = cuponPrecio.valor
+                let total = subTotal - cupon
+                setTotalPrecio(total < 0 ? 0 : total)
+            }
+            else{
+                console.log('total precio')
+                let precioTotal = 0
+                let newTotalPrecio = [...cart]
+                newTotalPrecio.forEach( (item) =>{
+                    precioTotal += item.totalPrecio
+                } )
+                setTotalPrecio(precioTotal)
+            }
+
+        }
         totalPrecioItems();
-    },[cart, dataCupon, cuponPrecio])
+    },[cart, dataCupon, cuponPrecio, subTotalPrecio])
 
 
 
@@ -72,57 +114,15 @@ export function CartContextProvider(props){
         return totalCount
         //return totalCount;
     }
-    //funcion para obtener subtotal del valor de los items
-    function subTotalPrecioItems(){
-        console.log('subtotal precio')
-        let precioTotal = 0
-        let newTotalPrecio = [...cart]
-        newTotalPrecio.forEach( (item) =>{
-            precioTotal += item.totalPrecio
-        } )
-        setSubTotalPrecio(precioTotal) 
-    }
+    
     //funcion para buscar el cupon
     function searchCupon(cupon){
-        console.log("ingreso respuesta cupon")
         let searchDataCupon = [...cupon];
         setDatacupon(searchDataCupon)
         
     }
-    function aplicarCupon(searchDataCupon){
-        console.log("searchDataCupon", searchDataCupon.length)
-        if(searchDataCupon.length !== 0){
-            let valor = 0
-            if(searchDataCupon[0].tipo === "porcentaje"){
-                valor = searchDataCupon[0].valor*(subTotalPrecio/100)
-            }
-            else if(searchDataCupon[0].tipo === "valor"){
-                valor = searchDataCupon[0].valor
-            }
-            if(cuponPrecio.valor !== valor){
-                setCuponPrecio( {id:searchDataCupon[0].id,nombre:searchDataCupon[0].cupon,valor:valor} )
-            }
-        }
-    }
-    //funcion suma total de valores items  - cupon
-    function totalPrecioItems(){
-        if(cuponPrecio !== 0 && typeof cuponPrecio === 'object'){
-            let subTotal = subTotalPrecio
-            let cupon = cuponPrecio.valor
-            let total = subTotal - cupon
-            setTotalPrecio(total < 0 ? 0 : total)
-        }
-        else{
-            console.log('total precio')
-            let precioTotal = 0
-            let newTotalPrecio = [...cart]
-            newTotalPrecio.forEach( (item) =>{
-                precioTotal += item.totalPrecio
-            } )
-            setTotalPrecio(precioTotal)
-        }
-
-    }
+    
+    
 
 
 
