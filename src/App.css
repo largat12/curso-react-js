@@ -76,6 +76,26 @@ ul.slick-dots li.slick-active button {
   padding: 0px;
   text-align: center;
 }
+.subtitulos {
+  color: var(--red-portal-exito);
+  font-family: "Raleway", sans-serif;
+  font-size: 2rem;
+  line-height: 2rem;
+  font-weight: 500;
+  margin: -28px auto 2rem auto;
+  padding: 0px;
+  text-align: center;
+}
+.titulo-simple {
+  color: var(--red-portal-exito-texto);
+  font-family: "Raleway", sans-serif;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 500;
+  margin: 1rem auto 1rem auto;
+  padding: 0px;
+  text-align: left;
+}
 .descripcion {
   color: var(--red-portal-exito-texto);
   font-family: "Raleway", sans-serif;

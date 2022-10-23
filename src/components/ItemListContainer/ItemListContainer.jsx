@@ -3,7 +3,7 @@ import './itemListContainer.css'
 import { useState, useEffect } from 'react';
 import { ItemList } from './ItemList/ItemList';
 import { useLocation, useParams } from 'react-router-dom';
-import { getProductos, getProductoCategory} from '../../servicios/firebase';
+import { getProductos, getProductoCategory} from '../../servicios/productos';
 import { ErrorLoading } from '../ErrorLoading/ErrorLoading';
 
 
@@ -16,7 +16,7 @@ export function ItemListContainer(props){
     const params = useParams();
     const categoria = params.id
     
-    
+  
     
     useEffect( () =>{
         //validar si viene por una categoria

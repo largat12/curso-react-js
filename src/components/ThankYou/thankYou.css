@@ -1,0 +1,43 @@
+.container.thankyou .container.orden {
+    background: #f7f6f7;
+    padding: 20px;
+}
+
+.container.thankyou .container.orden  p {
+    margin-bottom: 0px;
+}
+
+.container.thankyou .container.orden p.titulo {
+    font-size: .715em;
+}
+
+.container.thankyou .container.orden p.descripcion {
+    font-size: .8em;
+    font-weight: bold;
+}
+.container.thankyou .container.orden > .row > div {
+    border-right: 1px dashed #d3ced2;
+}
+
+.container.thankyou .container.orden > .row > div:last-child {
+    border-right: none;
+}
+.container.thankyou .container.pedido p {
+    margin-bottom: 0px;
+    font-size: .9rem;
+    font-weight: 700;
+    color: var(--red-portal-exito-texto);
+}
+
+.container.thankyou .container.pedido .col-6 {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: -1px;}
+
+.container.thankyou .container.pedido .row.valores .col-6 {
+    background: #f7f6f7;
+}
+
+.container.thankyou .container.pedido .row.producto > div:last-child p {
+    font-weight: 500;
+}

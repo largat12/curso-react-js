@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProducto } from "../../servicios/firebase";
+import { getProducto } from "../../servicios/productos";
 import { ErrorLoading } from "../ErrorLoading/ErrorLoading";
 import { ItemList } from "../ItemListContainer/ItemList/ItemList";
 

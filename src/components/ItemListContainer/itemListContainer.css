@@ -1,7 +1,7 @@
 
 .container.list > div {
-    flex: 0 0 calc(calc(100% / 3) - 1rem);
-    width: calc(calc(100% / 3) - 1rem);
+    flex: 0 0 calc(calc(100% / 4) - 1rem);
+    width: calc(calc(100% / 4) - 1rem);
 }
 
 .container.list {

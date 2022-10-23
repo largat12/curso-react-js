@@ -5,6 +5,12 @@ import { useState, useEffect, useContext} from 'react';
 import { cardContext } from '../../../../context/cartContext';
 
 export function Item(props){
+  const contentItem = {...props}
+  // cuando viene por carrusel trae unos estilos propios en los props, con esto los eliminamos para que no nos afecten en la construccion del los elementos
+  if(contentItem.typeCard === "carousel"){
+    delete contentItem.style
+    delete contentItem.tabIndex
+  }
   const [textAddCart, setTextAddCart] = useState([{}])
   useEffect(()=> {
       setTextAddCart({"state":true})
@@ -14,7 +20,7 @@ export function Item(props){
   function onAdd(countProduct, totalPrecio){
       if(textAddCart.state){
           setTextAddCart({"state":false})
-          let itemAddToCard = props
+          let itemAddToCard = contentItem
           addItem(itemAddToCard, countProduct, totalPrecio)
       }
       else{
@@ -24,27 +30,27 @@ export function Item(props){
 
 
   let content = <>
-                  <Link  to={"/item/"+props.id}>
-                    <h3 className='titulo-card-name'>{props.title}</h3>
+                  <Link  to={"/item/"+contentItem.id}>
+                    <h3 className='titulo-card-name'>{contentItem.title}</h3>
                   </Link>
-                  <h5 className='titulo-card'>Valor por {props.description.toLowerCase()}</h5>
+                  <h5 className='titulo-card'>Valor por {contentItem.description.toLowerCase()}</h5>
                 </>;
   
   return(
-    <div key={props.id} className={`card ${props.typeCard}`}>
+    <div key={contentItem.id} className={`card ${contentItem.typeCard}`}>
         <div className="content">
-          <Link  to={"/item/"+props.id}>
-            <img className='imagen' src={props.imagen} alt={props.title}/>
+          <Link  to={"/item/"+contentItem.id}>
+            <img className='imagen' src={contentItem.imagen} alt={contentItem.title}/>
           </Link>
-          {props.typeCard === "list" ? content : ""}
-          {props.typeCard === "carousel" ? content : ""}
+          {contentItem.typeCard === "list" ? content : ""}
+          {contentItem.typeCard === "carousel" ? content : ""}
         </div>
         <div className="content">
-          {props.typeCard === "details" ? content : ""}
-          <h6 className='precio'>$ {new Intl.NumberFormat("es-CO").format(Math.trunc(props.precio))}</h6>
+          {contentItem.typeCard === "details" ? content : ""}
+          <h6 className='precio'>$ {new Intl.NumberFormat("es-CO").format(Math.trunc(contentItem.precio))}</h6>
 
           
-          <ItemCount onAddClick={onAdd} stock={props.stock} precio={props.precio} textAddCart={textAddCart}/>
+          <ItemCount onAddClick={onAdd} stock={contentItem.stock} precio={contentItem.precio} textAddCart={textAddCart}/>
         </div>
       
     </div>

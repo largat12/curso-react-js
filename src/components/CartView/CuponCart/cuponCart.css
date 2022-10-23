@@ -1,3 +1,6 @@
+form#content-cupon{
+    width: auto;
+}
 .container.carrito.compras .opciones {
     margin-top: 20px;
 }
@@ -10,6 +13,7 @@
     font-family: "Raleway", Helvetica, sans-serif;
     border-radius: 6px;
     font-size: .8rem;
+    width: 200px;
 }
 .container.carrito.compras .opciones input#couponSubmit {
     box-sizing: border-box;

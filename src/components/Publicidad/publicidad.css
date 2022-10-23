@@ -1,0 +1,103 @@
+.container-publicidad {
+    max-width: 1250px;
+    margin: 50px auto;
+}
+
+.container-publicidad > .row {
+    margin: 0px;
+}
+
+
+.container-publicidad > .row .publicidad {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.container-publicidad > .row .publicidad .texto {
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    width: 100%;
+    text-align: center;
+    font-size: 42px;
+    font-weight: 900;
+    text-shadow: 0px 0px 14px #000000bf;
+    z-index: 1;
+}
+
+.container-publicidad > .row .publicidad .imagen {
+    display: block;
+}
+
+.container-publicidad > .row .publicidad .imagen a {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.container-publicidad > .row .publicidad .imagen a:before {
+    position: absolute;
+    content: '';
+    z-index: 1;
+    top: 15%;
+    right: 7%;
+    bottom: 15%;
+    left: 7%;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    transition: opacity .35s,transform .35s;
+    opacity: 0;
+}
+.container-publicidad > .row .publicidad .imagen a:after {
+    position: absolute;
+    content: '';
+    z-index: 1;
+    top: 7%;
+    right: 15%;
+    bottom: 7%;
+    left: 15%;
+    border-right: 1px solid #fff;
+    border-left: 1px solid #fff;
+    -webkit-transform-origin: 100% 0;
+    transform-origin: 100% 0;
+    transition: opacity .35s,transform .35s;
+    opacity: 0;
+}
+.container-publicidad > .row .publicidad:hover .imagen a:before, .container-publicidad > .row .publicidad:hover .imagen a:after {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+}
+.container-publicidad > .row .publicidad .imagen a img {
+    display: block;
+    width: 100%;
+    -webkit-transition: opacity .35s,-webkit-transform .35s;
+    transition: opacity .35s,transform .35s;
+    -webkit-transform: scale3d(1,1,1);
+    transform: scale3d(1,1,1);
+}
+
+.container-publicidad > .row .publicidad:hover .imagen a img {
+    opacity: .6;
+    -webkit-transform: scale3d(1.05,1.05,1);
+    transform: scale3d(1.05,1.05,1);
+}
+.display-flex {
+    display: flex;
+}
+.display-flex > .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+

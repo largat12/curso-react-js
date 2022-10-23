@@ -1,0 +1,47 @@
+.container.carrito.compras.vacio h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.container.carrito.compras.vacio {
+    margin: 50px auto;
+    min-height: 38vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.container.carrito.compras.vacio > .row a {
+    font-family: "Poppins", Helvetica, sans-serif;
+    font-size: 1rem;
+    padding: 9px 21px;
+    border-radius: 8px;
+    outline: 0;
+    display: inline-block;
+    background: var(--red-portal-exito);
+    width: auto;
+    margin: 0px auto;
+    position: relative;
+    color: white;
+    text-decoration: none;
+}
+button#vaciar-carrito {
+    width: auto;
+    box-sizing: border-box;
+    border: 1px solid var(--red-portal-exito);
+    background: var(--red-portal-exito);
+    padding: 8px 16px;
+    margin: 0 4px 0 0;
+    outline: 0;
+    font-family: "Raleway", Helvetica, sans-serif;
+    border-radius: 6px;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    transition: all .5s;
+}
+
+button#vaciar-carrito:hover {
+    background: var(--red-portal-exito-hover);
+}

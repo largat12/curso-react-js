@@ -14,7 +14,7 @@ export function CartContextProvider(props){
             let content = JSON.parse(sessionStorage.getItem("cart"))
             setCart( content )
         }
-    },[cart] )
+    },[] )
     
     useEffect( () =>{
         //funcion para obtener subtotal del valor de los items
@@ -51,7 +51,6 @@ export function CartContextProvider(props){
                 setTotalPrecio(total < 0 ? 0 : total)
             }
             else{
-                console.log('total precio')
                 let precioTotal = 0
                 let newTotalPrecio = [...cart]
                 newTotalPrecio.forEach( (item) =>{
@@ -76,6 +75,7 @@ export function CartContextProvider(props){
         
         item["countProduct"] = countProduct
         item["totalPrecio"] = totalPrecio
+
         let newCart = [...cart]
         //saber si un elemento ya existe
         let producto = newCart.some( (elemento) => {
@@ -114,20 +114,24 @@ export function CartContextProvider(props){
         return totalCount
         //return totalCount;
     }
-    
+    //function de eliminar todos los elementos del carrito
+    function clear(){
+        let newCart = []
+        setCart(newCart)
+        loadSessionStorage(newCart)
+    }
     //funcion para buscar el cupon
     function searchCupon(cupon){
         let searchDataCupon = [...cupon];
         setDatacupon(searchDataCupon)
-        
+       
     }
-    
     
 
 
 
     return(
-        <cardContext.Provider value={ {cart, addItem, removeItem, totalItemsCount, subTotalPrecio, cuponPrecio, totalPrecio, searchCupon} }>
+        <cardContext.Provider value={ {cart, addItem, removeItem, totalItemsCount, subTotalPrecio, cuponPrecio, totalPrecio, searchCupon, clear} }>
             {props.children}
         </cardContext.Provider>
     )

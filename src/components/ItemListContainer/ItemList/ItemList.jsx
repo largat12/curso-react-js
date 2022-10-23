@@ -46,10 +46,12 @@ export function ItemList(props) {
       nextArrow: <SlickArrowLeft />,
       prevArrow: <SlickArrowRight />,
     };
+    
     return (
+      
       <Slider {...settings} className={`contenedor-${cardsType} `}>
-        {cardsProduct.map((card) => (
-          <Item
+        {cardsProduct.map((card) => {
+          return (<Item
             key={card.id}
             id={card.id}
             imagen={card.imagen}
@@ -59,8 +61,9 @@ export function ItemList(props) {
             stock={card.stock}
             categoria={card.categoria}
             typeCard={cardsType}
-          />
-        ))}
+          />)
+          }
+        )}
       </Slider>
     );
   }

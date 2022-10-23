@@ -1,0 +1,89 @@
+form#formChekout .error {
+    display: none;
+}
+form#formChekout .itemFormulario:invalid[focused="true"]{
+    border: 1px solid red;
+}
+form#formChekout .itemFormulario:invalid[focused="true"] ~ span.error{
+    display: block;
+}
+form#formChekout {
+    margin-top: 10px;
+}
+
+form#formChekout label {
+    display: block;
+    font-family: "Raleway", Helvetica, sans-serif;
+    font-size: .8rem;
+    width: 100%;
+    margin-bottom: 11px;
+}
+
+form#formChekout label input, form#formChekout label select {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #d3ced2;
+    padding: 8px;
+    margin: 0 4px 0 0;
+    outline: 0;
+    font-family: "Raleway", Helvetica, sans-serif;
+    border-radius: 6px;
+    margin-top: 10px;
+    font-size: .8rem;
+}
+form#formChekout label span.error {
+    color: red;
+}
+form#formChekout .tablaCheckout > .row > div {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: -1px;
+}
+
+form#formChekout .tablaCheckout > .row > div > p {
+    margin-bottom: 0px;
+    font-size: .9rem;
+    font-weight: 700;
+    color: var(--red-portal-exito-texto);
+}
+form#formChekout .tablaCheckout > .row.terminos > div {
+    background: #f2f2f2;
+    border-color: #f2f2f2;
+}
+
+form#formChekout .tablaCheckout > .row.terminos > div p {
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+form#formChekout .tablaCheckout > .row.terminos {
+    margin-top: 20px;
+}
+
+form#formChekout .tablaCheckout > .row.terminos > div p input {
+    margin-right: 10px;
+}
+
+form#formChekout .tablaCheckout button.buttonSubmit {
+    font-family: "Poppins", Helvetica, sans-serif;
+    font-size: 1rem;
+    padding: 9px 21px;
+    border-radius: 8px;
+    outline: 0;
+    display: inline-block;
+    background: var(--red-portal-exito);
+    width: auto;
+    margin: 0px auto;
+    position: relative;
+    color: white;
+    text-decoration: none;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all .5s;
+}
+
+form#formChekout .tablaCheckout button.buttonSubmit:hover {
+    background: var(--red-portal-exito-hover);
+}

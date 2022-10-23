@@ -12,6 +12,9 @@ import { CartContextProvider } from './context/cartContext';
 import { TitleComponent } from './title/Title';
 import { CartView } from './components/CartView/CartView';
 import { Footer } from './components/Footer/Footer';
+import { Publicidad } from './components/Publicidad/Publicidad';
+import { Checkout } from './components/Checkout/Checkout';
+import { ThankYou } from './components/ThankYou/ThankYou';
 
 
 function App() {
@@ -27,6 +30,7 @@ function App() {
                 <TitleComponent title={"Inicio"} />
                 <NavBar />
                 <Banner data={BannerInicio}/>
+                <Publicidad/>
                 <ItemListContainer title="Productos Destacados" viewProduct="carousel" colElements="4" />
                 <Footer />
               </>
@@ -38,10 +42,9 @@ function App() {
                 <NavBar />
                 <div className='container'>
                   <div className='row'>
-                    <div className='col-3'></div>
-                    <div className='col-9'>
+                    <div className='col-12'>
                     <Banner data={BannerProducto}/>
-                    <ItemListContainer title="" viewProduct="list" colElements="3"/>
+                    <ItemListContainer title="" viewProduct="list" colElements="4"/>
                     </div>
                   </div>
                 </div>
@@ -55,10 +58,9 @@ function App() {
                 <NavBar />
                 <div className='container'>
                   <div className='row'>
-                    <div className='col-3'></div>
-                    <div className='col-9'>
+                    <div className='col-12'>
                     <Banner data={BannerCategorias}/>
-                    <ItemListContainer title="" viewProduct="list" colElements="3"/>
+                    <ItemListContainer title="" viewProduct="list" colElements="4"/>
                     </div>
                   </div>
                 </div>
@@ -82,8 +84,8 @@ function App() {
                 <div className='container'>
                   <div className='row'>
                     <div className='col-12'>
-                      <Banner data={BannerCarritoCompras}/>
-                      <CartView />
+                    <CartView><Banner data={BannerCarritoCompras}/></CartView>
+                      
                     </div>
                   </div>
                 </div>  
@@ -97,10 +99,29 @@ function App() {
               <>
                 <TitleComponent title={"Detalls de la orden"} />
                 <NavBar />
+                
                 <div className='container'>
                   <div className='row'>
                     <div className='col-12'>
-                      <Banner data={BannerCheckout}/>
+                    <Checkout><Banner data={BannerCheckout}/></Checkout>
+                    </div>
+                  </div>
+                </div>  
+                
+                <Footer />
+              </>
+              
+            } />
+            {/**  Vista de thankyou**/}
+            <Route path='/thankyou/:id' element={
+              <>
+                <TitleComponent title={"Orden generada"} />
+                <NavBar />
+                
+                <div className='container'>
+                  <div className='row'>
+                    <div className='col-12'>
+                    <ThankYou />
                     </div>
                   </div>
                 </div>  

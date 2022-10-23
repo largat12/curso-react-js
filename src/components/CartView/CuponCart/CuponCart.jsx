@@ -55,8 +55,8 @@ export function CuponCart(){
     
     return(
         <>
-            <form onSubmit={handleSubmit}>
-                <input type="text" name="couponCode"  id="couponCode" placeholder="Código promocional" />
+            <form onSubmit={handleSubmit} id="content-cupon">
+                <input type="text" name="couponCode"  id="couponCode" placeholder="Código promocional Ej: 50off" />
                 <input type="submit" name="apply_coupon" id="couponSubmit" value={valueSubmit} />
             </form>
             {
