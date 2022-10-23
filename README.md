@@ -62,7 +62,7 @@
 Merkopolis es una empresa localizada en la ciudad de Medellín Colombia, que distribuye productos al por mayor a grandes supermercados y cadenas. Sus productos son 100% naturales, comprados directamente a los campesinos
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
 
 
