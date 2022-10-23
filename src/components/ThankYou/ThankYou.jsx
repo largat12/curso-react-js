@@ -71,7 +71,7 @@ export function ThankYou(){
                             <ElementsCheckout data={ {title:'Subtotal', precio:dataPedido.subtotal} } elemento='valores'/>
                                 {   
                                     dataPedido.cupon !== 0 ? 
-                                    <ElementsCheckout data={ {title:'Cupón',    precio:dataPedido.cupon} } elemento='valores'/>
+                                    <ElementsCheckout data={ {title:'Cupón',    precio:dataPedido.cupon.valor} } elemento='valores'/>
                                     :
                                     <></>
                                 }

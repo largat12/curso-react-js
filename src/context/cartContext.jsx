@@ -119,6 +119,10 @@ export function CartContextProvider(props){
         let newCart = []
         setCart(newCart)
         loadSessionStorage(newCart)
+        setDatacupon([])
+        setCuponPrecio(0)
+        setSubTotalPrecio(0)
+        setTotalPrecio(0)
     }
     //funcion para buscar el cupon
     function searchCupon(cupon){

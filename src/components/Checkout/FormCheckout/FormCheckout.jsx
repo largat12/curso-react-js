@@ -4,7 +4,7 @@ import { itemsFormCheckout } from "../../../Helpers/itemsFormCheckout"
 import { ELementsForm } from "./ElementsForm/ELementsForm"
 import { ElementsCheckout } from './ElementsCheckout/ElementsCheckout';
 export function FormCheckout({onChangeForm, cart, subTotalPrecio, cuponPrecio, totalPrecio}){
-    
+    const [btnCheckout, setBtnCheckout] = useState('Realizar pedido')
     //trae el json donde esta el listado de elementos con sus respectivos valores
     const itemsForm = itemsFormCheckout;
     const [valuesForm, setValuesForm] = useState({
@@ -15,10 +15,11 @@ export function FormCheckout({onChangeForm, cart, subTotalPrecio, cuponPrecio, t
         mediospago:{...itemsForm}[4].option[0].value,
     })
     
+    console.log(cuponPrecio)
     function submitFormCheckout(e){
         e.preventDefault()
         onChangeForm(valuesForm)
-
+        setBtnCheckout('Realizando pedido...')
     }
     function changeFormCheckout(e){
         let newValues = {...valuesForm}
@@ -57,7 +58,7 @@ export function FormCheckout({onChangeForm, cart, subTotalPrecio, cuponPrecio, t
                                 <ElementsCheckout data={ {title:'Subtotal', precio:subTotalPrecio} } elemento='valores'/>
                                 {   
                                     cuponPrecio !== 0 ? 
-                                    <ElementsCheckout data={ {title:'Cupón',    precio:cuponPrecio} } elemento='valores'/>
+                                    <ElementsCheckout data={ {title:'Cupón',    precio:cuponPrecio.valor} } elemento='valores'/>
                                     :
                                     <></>
                                 }
@@ -67,7 +68,7 @@ export function FormCheckout({onChangeForm, cart, subTotalPrecio, cuponPrecio, t
                                     <div className='col-12'>
                                         <p>Sus datos personales se utilizarán para procesar su pedido, respaldar su experiencia en este sitio web y para otros fines descritos en nuestra política de privacidad.</p>
                                         <p><input type="checkbox" required/>He leído y estoy de acuerdo con los términos y condiciones de la web </p>
-                                        <button type='submit' className='buttonSubmit'>Realizar pedido</button>
+                                        <button type='submit' className='buttonSubmit'>{btnCheckout}</button>
                                     </div>
                                 </div>
                             </div>
