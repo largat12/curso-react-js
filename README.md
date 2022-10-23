@@ -31,11 +31,8 @@
 <br />
 <div align="center">
   <a href="https://github.com/largat12/curso-react-js">
-    <img src="public/img/logo-color.png" alt="Logo" width="80" height="80">
+    <img src="public/img/logo-color.png" alt="Logo" width="120">
   </a>
-
-  <h3 align="center">Merkopolis</h3>
-
   <p align="center">
     <br />
     <a href="https://github.com/largat12/curso-react-js"><strong>Explore los documentos »</strong></a>
@@ -43,7 +40,7 @@
     <br />
     <a href="https://github.com/largat12/curso-react-js">Ver Demo</a>
     ·
-    <a href="https://github.com/largat12/curso-react-js/issues">Reportar error</a>
+    <a href="https://github.com/largat12/curso-react-js/issues">Reportar Error</a>
   </p>
 </div>
 
@@ -54,7 +51,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#about-the-project">Sobre el proyecto</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
@@ -78,7 +75,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## Sobre el proyecto
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
