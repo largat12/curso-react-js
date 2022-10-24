@@ -131,9 +131,6 @@ export function CartContextProvider(props){
        
     }
     
-
-
-
     return(
         <cardContext.Provider value={ {cart, addItem, removeItem, totalItemsCount, subTotalPrecio, cuponPrecio, totalPrecio, searchCupon, clear} }>
             {props.children}
