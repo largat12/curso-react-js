@@ -19,7 +19,7 @@ export const itemsFormCheckout = [
         placeholder: "(57)3002654565",
         errorMessage:"El campo debe de contener minimo un valor. indicativo + numero de teléfono",
         label: "Teléfono",
-        pattern: "^[0-9]{2}[0-9]{10}$",
+        pattern: "^[0-9]{12}$",
         required: true,
       },
       {
