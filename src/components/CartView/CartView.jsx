@@ -59,10 +59,16 @@ export function CartView(props){
                                     <div className='col-12 opciones' >
                                         <div className='container p-0'>
                                             <div className='row'>
-                                                <CuponCart />
-                                                <button onClick={vaciarCarrito} id='vaciar-carrito'>
-                                                    Vaciar carrito
-                                                </button>
+                                                <div>
+                                                    <CuponCart />
+                                                </div>
+                                                <div>
+                                                    <button onClick={vaciarCarrito} id='vaciar-carrito'>
+                                                        Vaciar carrito
+                                                    </button>
+                                                </div>
+                                                
+                                                
                                             </div>  
                                         </div>
                                     </div>

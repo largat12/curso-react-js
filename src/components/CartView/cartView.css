@@ -45,3 +45,12 @@ button#vaciar-carrito {
 button#vaciar-carrito:hover {
     background: var(--red-portal-exito-hover);
 }
+.container.carrito.compras .opciones > div > div.row {
+    flex-direction: row;
+}
+
+.container.carrito.compras .opciones > div > div.row > div {
+    flex: 0 0 auto;
+    width: auto;
+    padding: 0px;
+}
