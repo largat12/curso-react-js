@@ -26,6 +26,7 @@ export function ItemListContainer(props){
                 getProductoCategory(categoria).then( (respuestaCompletada) => {
                     setDataCard(respuestaCompletada)
                     setCategoryId(categoria)
+                    setFeedBackMsg(null) 
                 })
                 .catch( (respuestaError)=> {
                     setFeedBackMsg(respuestaError.message) 
@@ -33,7 +34,8 @@ export function ItemListContainer(props){
             }
             else{
                 getProductos().then( (respuestaCompletada) => {
-                    setDataCard(respuestaCompletada) 
+                    setDataCard(respuestaCompletada)
+                    setFeedBackMsg(null) 
                 })
                 .catch( (respuestaError)=> {
                     setFeedBackMsg(respuestaError.message) 

@@ -14,6 +14,7 @@ export function ItemDetailContainer(){
         getProducto(id).then( (respuestaCompletada) => {
             console.log("consulta completada")
             setDataCard([respuestaCompletada])
+            setFeedBackMsg(null) 
         })
         .catch( (respuestaError)=> {
             setFeedBackMsg(respuestaError.message) 
