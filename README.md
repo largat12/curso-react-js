@@ -23,7 +23,7 @@
     <a href="https://github.com/largat12/curso-react-js"><strong>Explore los documentos »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/largat12/curso-react-js">Ver Demo</a>
+    <a href="https://tienda-curso-react-js.vercel.app/">Ver Demo</a>
     ·
     <a href="https://github.com/largat12/curso-react-js/issues">Reportar Error</a>
   </p>
