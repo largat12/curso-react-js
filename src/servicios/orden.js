@@ -12,7 +12,7 @@ export async function createOrden(orden){
         return result.id
     }
     else{
-        throw new Error("Oops... hubo un error a crear su orden, intentalo nuevamente")
+        throw new Error("Oops... hubo un error a crear el canal, intentalo nuevamente")
     }
 
     
