@@ -52,7 +52,4 @@ export async function getProductoCategory(category){
         throw new Error("Lo sentimos no contamos con esta categoria")
     }
 
-    
-    
-
 }
